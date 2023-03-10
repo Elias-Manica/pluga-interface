@@ -27,7 +27,7 @@ export const Container = styled.input`
 
 export const View = styled.div`
   margin-top: 70px;
-  width: 80%;
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
 `;

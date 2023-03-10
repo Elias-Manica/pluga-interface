@@ -1,9 +1,15 @@
 import {
   Button,
   Container,
+  ContainerLast,
+  ContatinerImage,
   Image,
+  ImageLast,
   Text,
+  TextLast,
+  TextLastTool,
   ViewInfos,
+  ViewLast,
   ViewName,
   ViewOpacity,
 } from "./styles";
@@ -75,9 +81,36 @@ export default function CardModal({
             <Image src={imgModal} />
             <ViewName>
               <Text>{name}</Text>
-              <Button>Acessar</Button>
+              <Button
+                onClick={() => {
+                  window.open(linkModal, "_blank").focus();
+                }}
+              >
+                Acessar
+              </Button>
             </ViewName>
           </ViewInfos>
+          <TextLast>Últimas ferramentas vizualizadas</TextLast>
+          <ViewLast>
+            <ContainerLast>
+              <ContatinerImage colorModal={color}>
+                <ImageLast src={imgModal} />
+              </ContatinerImage>
+              <TextLastTool>{name}</TextLastTool>
+            </ContainerLast>
+            <ContainerLast>
+              <ContatinerImage colorModal={color}>
+                <ImageLast src={imgModal} />
+              </ContatinerImage>
+              <TextLastTool>{name}</TextLastTool>
+            </ContainerLast>
+            <ContainerLast>
+              <ContatinerImage colorModal={color}>
+                <ImageLast src={imgModal} />
+              </ContatinerImage>
+              <TextLastTool>{name}</TextLastTool>
+            </ContainerLast>
+          </ViewLast>
         </Container>
       </>
     </>

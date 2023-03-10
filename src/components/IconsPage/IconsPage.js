@@ -1,3 +1,6 @@
+import { AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import CardModal from "../CardModall/CardModal";
 import CardTool from "../CardToll/CardTool";
 import { Container } from "./styles";
 
@@ -82,13 +85,23 @@ const list = [
 ];
 
 export default function IconsPage() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
       <Container>
         {list.map((item) => (
-          <CardTool name={item.name} img={item.icon} />
+          <CardTool
+            name={item.name}
+            img={item.icon}
+            setShowModal={setShowModal}
+          />
         ))}
       </Container>
+      <AnimatePresence>
+        {showModal && (
+          <CardModal showModal={showModal} setShowModal={setShowModal} />
+        )}
+      </AnimatePresence>
     </>
   );
 }

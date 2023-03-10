@@ -1,8 +1,22 @@
-import { Container, ViewOpacity } from "./styles";
+import {
+  Button,
+  Container,
+  Image,
+  Text,
+  ViewInfos,
+  ViewName,
+  ViewOpacity,
+} from "./styles";
 
 import { motion } from "framer-motion";
 
-export default function CardModal({ setShowModal }) {
+export default function CardModal({
+  setShowModal,
+  name,
+  imgModal,
+  linkModal,
+  color,
+}) {
   const variants = {
     open: {
       opacity: 1,
@@ -56,7 +70,15 @@ export default function CardModal({ setShowModal }) {
           variants={variantsModal}
           animate={"open"}
           exit={"closed"}
-        />
+        >
+          <ViewInfos colorModal={color}>
+            <Image src={imgModal} />
+            <ViewName>
+              <Text>{name}</Text>
+              <Button>Acessar</Button>
+            </ViewName>
+          </ViewInfos>
+        </Container>
       </>
     </>
   );

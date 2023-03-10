@@ -9,3 +9,5 @@ export const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 `;
+
+export const View = styled.div``;

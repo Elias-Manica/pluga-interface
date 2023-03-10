@@ -2,7 +2,7 @@ import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import CardModal from "../CardModall/CardModal";
 import CardTool from "../CardToll/CardTool";
-import { Container } from "./styles";
+import { Container, View } from "./styles";
 
 const list = [
   {
@@ -16,21 +16,21 @@ const list = [
     app_id: "hotmart",
     name: "Hotmart",
     color: "#F04E23",
-    icon: "https://assets.pluga.co/apps/logos/hotmart/hotmart.png",
+    icon: "https://assets.pluga.co/apps/icons/hotmart/hotmart-icon.svg",
     link: "https://pluga.co/ferramentas/hotmart/",
   },
   {
     app_id: "eduzz",
     name: "Eduzz",
     color: "#FFCD33",
-    icon: "https://assets.pluga.co/apps/logos/eduzz/eduzz.png",
+    icon: "https://assets.pluga.co/apps/icons/eduzz/eduzz-icon.svg",
     link: "https://pluga.co/ferramentas/eduzz/",
   },
   {
     app_id: "jira",
     name: "Jira Software",
     color: "#0052cc",
-    icon: "https://assets.pluga.co/apps/logos/jira/jira.png",
+    icon: "https://assets.pluga.co/apps/icons/jira/jira-icon.svg",
     link: "https://pluga.co/ferramentas/jira/",
   },
   {
@@ -44,7 +44,7 @@ const list = [
     app_id: "calendly",
     name: "Calendly",
     color: "#656a74",
-    icon: "https://assets.pluga.co/apps/logos/calendly/calendly.png",
+    icon: "https://assets.pluga.co/apps/icons/calendly/calendly-icon.svg",
     link: "https://pluga.co/ferramentas/calendly/",
   },
   {
@@ -58,7 +58,7 @@ const list = [
     app_id: "twilio",
     name: "Twilio",
     color: "#cf272c",
-    icon: "https://assets.pluga.co/apps/logos/twilio/twilio.png",
+    icon: "https://assets.pluga.co/apps/icons/twilio/twilio-icon.svg",
     link: "https://pluga.co/ferramentas/twilio/",
   },
   {
@@ -72,34 +72,57 @@ const list = [
     app_id: "pipefy",
     name: "Pipefy",
     color: "#3B5BFD",
-    icon: "https://assets.pluga.co/apps/logos/pipefy/pipefy.png",
+    icon: "https://assets.pluga.co/apps/icons/pipefy/pipefy-icon.svg",
     link: "https://pluga.co/ferramentas/pipefy/",
   },
   {
     app_id: "active_campaign",
     name: "ActiveCampaign",
     color: "#356ae6",
-    icon: "https://assets.pluga.co/apps/logos/active_campaign/active_campaign.png",
+    icon: "https://assets.pluga.co/apps/icons/active_campaign/active_campaign-icon.svg",
     link: "https://pluga.co/ferramentas/active_campaign/",
   },
 ];
 
 export default function IconsPage() {
   const [showModal, setShowModal] = useState(false);
+  const [nameModal, setNameModal] = useState("");
+  const [imgModal, setImgModal] = useState("");
+  const [linkModal, setLinkModal] = useState("");
+  const [color, setColor] = useState("");
+
   return (
     <>
       <Container>
         {list.map((item) => (
-          <CardTool
-            name={item.name}
-            img={item.icon}
-            setShowModal={setShowModal}
-          />
+          <View
+            onClick={() => {
+              setNameModal(item.name);
+              setImgModal(item.icon);
+              setLinkModal(item.link);
+              setColor(item.color);
+            }}
+            key={item.app_id}
+          >
+            <CardTool
+              name={item.name}
+              img={item.icon}
+              color={item.color}
+              setShowModal={setShowModal}
+            />
+          </View>
         ))}
       </Container>
       <AnimatePresence>
         {showModal && (
-          <CardModal showModal={showModal} setShowModal={setShowModal} />
+          <CardModal
+            showModal={showModal}
+            setShowModal={setShowModal}
+            name={nameModal}
+            imgModal={imgModal}
+            linkModal={linkModal}
+            color={color}
+          />
         )}
       </AnimatePresence>
     </>

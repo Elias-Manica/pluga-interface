@@ -1,10 +1,12 @@
-import { Container, Image, Text, ViewText } from "./styles";
+import { Container, Image, Text, ViewImage, ViewText } from "./styles";
 
-export default function CardTool({ name, img, setShowModal }) {
+export default function CardTool({ name, img, setShowModal, color }) {
   return (
     <>
       <Container onClick={() => setShowModal(true)}>
-        <Image src={img} />
+        <ViewImage colorCard={color}>
+          <Image src={img} />
+        </ViewImage>
         <ViewText>
           <Text>{name}</Text>
         </ViewText>

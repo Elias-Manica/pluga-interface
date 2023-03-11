@@ -142,3 +142,12 @@ export const TextLastTool = styled.h1`
 export const ViewLastInfos = styled.div`
   display: ${(props) => (props.firstWatch ? "none" : "inicial")};
 `;
+
+export const ViewIcon = styled.div`
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  font-size: 25px;
+  color: #fff;
+  cursor: pointer;
+`;

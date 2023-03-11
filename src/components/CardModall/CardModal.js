@@ -8,6 +8,7 @@ import {
   Text,
   TextLast,
   TextLastTool,
+  ViewIcon,
   ViewInfos,
   ViewLast,
   ViewLastInfos,
@@ -16,7 +17,10 @@ import {
 } from "./styles";
 
 import { motion } from "framer-motion";
+
 import { useEffect, useState } from "react";
+
+import { IoIosClose } from "react-icons/io";
 
 export default function CardModal({
   setShowModal,
@@ -32,9 +36,6 @@ export default function CardModal({
   const variants = {
     open: {
       opacity: 1,
-      transition: {
-        duration: 0.3,
-      },
     },
     closed: {
       opacity: 0,
@@ -47,12 +48,88 @@ export default function CardModal({
   const variantsModal = {
     open: {
       scale: 1,
+    },
+    closed: {
+      scale: 0,
+      transition: {
+        delay: 0.3,
+      },
+    },
+  };
+
+  const imageVariant = {
+    open: {
+      opacity: 1,
+      x: "0vw",
       transition: {
         duration: 0.3,
       },
     },
     closed: {
-      scale: 0,
+      opacity: 0,
+      x: "-3vw",
+    },
+  };
+
+  const infoVariant = {
+    open: {
+      opacity: 1,
+      x: "0vw",
+      transition: {
+        duration: 0.3,
+      },
+    },
+    closed: {
+      opacity: 0,
+      x: "3vw",
+    },
+  };
+
+  const firstToolVariant = {
+    open: {
+      opacity: 1,
+      y: "0vh",
+      transition: {
+        duration: 0.3,
+      },
+    },
+    closed: {
+      opacity: 0,
+      y: "3vh",
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
+  const secondToolVariant = {
+    open: {
+      opacity: 1,
+      y: "0vh",
+      transition: {
+        duration: 0.5,
+      },
+    },
+    closed: {
+      opacity: 0,
+      y: "3vh",
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
+  const tirthToolVariant = {
+    open: {
+      opacity: 1,
+      y: "0vh",
+      transition: {
+        duration: 0.7,
+      },
+    },
+    closed: {
+      opacity: 0,
+      y: "3vh",
       transition: {
         duration: 0.3,
       },
@@ -102,8 +179,47 @@ export default function CardModal({
             colorModal={color}
             firstWatch={Object.keys(firstWatch).length === 0 ? true : false}
           >
-            <Image src={imgModal} />
-            <ViewName>
+            <ViewIcon
+              as={motion.div}
+              whileHover={{ scale: 1.2, rotate: 90 }}
+              whileTap={{
+                scale: 0.8,
+                rotate: -90,
+                borderRadius: "100%",
+              }}
+              onClick={() => {
+                setShowModal(false);
+              }}
+            >
+              <IoIosClose />
+            </ViewIcon>
+            <Image
+              src={imgModal}
+              as={motion.img}
+              initial={{
+                opacity: 1,
+                x: "-3vw",
+                transition: {
+                  delay: 0.3,
+                },
+              }}
+              variants={imageVariant}
+              animate={"open"}
+              exit={"closed"}
+            />
+            <ViewName
+              as={motion.div}
+              variants={infoVariant}
+              initial={{
+                opacity: 1,
+                x: "3vw",
+                transition: {
+                  delay: 0.3,
+                },
+              }}
+              animate={"open"}
+              exit={"closed"}
+            >
               <Text>{name}</Text>
               <Button
                 onClick={() => {
@@ -124,6 +240,17 @@ export default function CardModal({
                   onClick={() =>
                     window.open(JSON.parse(firstWatch).link, "_blank").focus()
                   }
+                  as={motion.div}
+                  variants={firstToolVariant}
+                  initial={{
+                    opacity: 1,
+                    y: "3vw",
+                    transition: {
+                      delay: 0.3,
+                    },
+                  }}
+                  animate={"open"}
+                  exit={"closed"}
                 >
                   <ContatinerImage colorModal={JSON.parse(firstWatch).color}>
                     <ImageLast src={JSON.parse(firstWatch).icon} />
@@ -136,6 +263,17 @@ export default function CardModal({
                   onClick={() =>
                     window.open(JSON.parse(secondWatch).link, "_blank").focus()
                   }
+                  as={motion.div}
+                  variants={secondToolVariant}
+                  initial={{
+                    opacity: 1,
+                    y: "3vw",
+                    transition: {
+                      delay: 0.3,
+                    },
+                  }}
+                  animate={"open"}
+                  exit={"closed"}
                 >
                   <ContatinerImage colorModal={JSON.parse(secondWatch).color}>
                     <ImageLast src={JSON.parse(secondWatch).icon} />
@@ -148,6 +286,17 @@ export default function CardModal({
                   onClick={() =>
                     window.open(JSON.parse(tirthWatch).link, "_blank").focus()
                   }
+                  as={motion.div}
+                  variants={tirthToolVariant}
+                  initial={{
+                    opacity: 1,
+                    y: "3vw",
+                    transition: {
+                      delay: 0.3,
+                    },
+                  }}
+                  animate={"open"}
+                  exit={"closed"}
                 >
                   <ContatinerImage colorModal={JSON.parse(tirthWatch).color}>
                     <ImageLast src={JSON.parse(tirthWatch).icon} />

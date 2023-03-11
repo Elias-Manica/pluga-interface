@@ -10,11 +10,13 @@ import {
   TextLastTool,
   ViewInfos,
   ViewLast,
+  ViewLastInfos,
   ViewName,
   ViewOpacity,
 } from "./styles";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function CardModal({
   setShowModal,
@@ -23,6 +25,10 @@ export default function CardModal({
   linkModal,
   color,
 }) {
+  const [firstWatch, setFirstWatch] = useState({});
+  const [secondWatch, setSecondWatch] = useState({});
+  const [tirthWatch, setTirthWatch] = useState({});
+
   const variants = {
     open: {
       opacity: 1,
@@ -53,6 +59,21 @@ export default function CardModal({
     },
   };
 
+  useEffect(() => {
+    const pluga1 = localStorage.getItem("pluga1");
+    if (pluga1) {
+      setFirstWatch(pluga1);
+    }
+    const pluga2 = localStorage.getItem("pluga2");
+    if (pluga2) {
+      setSecondWatch(pluga2);
+    }
+    const pluga3 = localStorage.getItem("pluga3");
+    if (pluga3) {
+      setTirthWatch(pluga3);
+    }
+  }, []);
+
   return (
     <>
       <>
@@ -77,7 +98,10 @@ export default function CardModal({
           animate={"open"}
           exit={"closed"}
         >
-          <ViewInfos colorModal={color}>
+          <ViewInfos
+            colorModal={color}
+            firstWatch={Object.keys(firstWatch).length === 0 ? true : false}
+          >
             <Image src={imgModal} />
             <ViewName>
               <Text>{name}</Text>
@@ -90,27 +114,49 @@ export default function CardModal({
               </Button>
             </ViewName>
           </ViewInfos>
-          <TextLast>Últimas ferramentas vizualizadas</TextLast>
-          <ViewLast>
-            <ContainerLast>
-              <ContatinerImage colorModal={color}>
-                <ImageLast src={imgModal} />
-              </ContatinerImage>
-              <TextLastTool>{name}</TextLastTool>
-            </ContainerLast>
-            <ContainerLast>
-              <ContatinerImage colorModal={color}>
-                <ImageLast src={imgModal} />
-              </ContatinerImage>
-              <TextLastTool>{name}</TextLastTool>
-            </ContainerLast>
-            <ContainerLast>
-              <ContatinerImage colorModal={color}>
-                <ImageLast src={imgModal} />
-              </ContatinerImage>
-              <TextLastTool>{name}</TextLastTool>
-            </ContainerLast>
-          </ViewLast>
+          <ViewLastInfos
+            firstWatch={Object.keys(firstWatch).length === 0 ? true : false}
+          >
+            <TextLast>Últimas ferramentas vizualizadas</TextLast>
+            <ViewLast>
+              {Object.keys(firstWatch).length > 0 && (
+                <ContainerLast
+                  onClick={() =>
+                    window.open(JSON.parse(firstWatch).link, "_blank").focus()
+                  }
+                >
+                  <ContatinerImage colorModal={JSON.parse(firstWatch).color}>
+                    <ImageLast src={JSON.parse(firstWatch).icon} />
+                  </ContatinerImage>
+                  <TextLastTool>{JSON.parse(firstWatch).name}</TextLastTool>
+                </ContainerLast>
+              )}
+              {Object.keys(secondWatch).length > 0 && (
+                <ContainerLast
+                  onClick={() =>
+                    window.open(JSON.parse(secondWatch).link, "_blank").focus()
+                  }
+                >
+                  <ContatinerImage colorModal={JSON.parse(secondWatch).color}>
+                    <ImageLast src={JSON.parse(secondWatch).icon} />
+                  </ContatinerImage>
+                  <TextLastTool>{JSON.parse(secondWatch).name}</TextLastTool>
+                </ContainerLast>
+              )}
+              {Object.keys(tirthWatch).length > 0 && (
+                <ContainerLast
+                  onClick={() =>
+                    window.open(JSON.parse(tirthWatch).link, "_blank").focus()
+                  }
+                >
+                  <ContatinerImage colorModal={JSON.parse(tirthWatch).color}>
+                    <ImageLast src={JSON.parse(tirthWatch).icon} />
+                  </ContatinerImage>
+                  <TextLastTool>{JSON.parse(tirthWatch).name}</TextLastTool>
+                </ContainerLast>
+              )}
+            </ViewLast>
+          </ViewLastInfos>
         </Container>
       </>
     </>

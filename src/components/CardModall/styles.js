@@ -12,7 +12,7 @@ export const Container = styled.div`
   bottom: 0;
   border-radius: 25px;
   @media (max-width: 900px) {
-    height: 350px;
+    height: 380px;
   }
 `;
 
@@ -40,9 +40,9 @@ export const ViewInfos = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 250px;
+  height: ${(props) => (props.firstWatch ? 400 : 250)}px;
   background-color: ${(props) => props.colorModal};
-  border-radius: 25px 25px 0 0;
+  border-radius: ${(props) => (props.firstWatch ? "25px" : "25px 25px 0 0")};
   @media (max-width: 900px) {
     flex-direction: column;
     height: 200px;
@@ -110,7 +110,13 @@ export const ViewLast = styled.div`
   margin-top: 20px;
 `;
 
-export const ContainerLast = styled.div``;
+export const ContainerLast = styled.div`
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+`;
 
 export const ImageLast = styled.img`
   height: 50px;
@@ -131,4 +137,8 @@ export const TextLastTool = styled.h1`
   font-weight: 600;
   text-align: center;
   margin-top: 10px;
+`;
+
+export const ViewLastInfos = styled.div`
+  display: ${(props) => (props.firstWatch ? "none" : "inicial")};
 `;

@@ -12,3 +12,14 @@ export const Container = styled.div`
 `;
 
 export const View = styled.div``;
+
+export const TextEmpty = styled.p`
+  text-align: center;
+  color: #7e91a5;
+  margin-top: 15px;
+  b {
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+  }
+`;

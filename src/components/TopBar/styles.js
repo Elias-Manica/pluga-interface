@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 70px;
   background-color: ${(props) => props.backColor};
   transition: all 0.5s linear;
 `;
@@ -95,5 +94,68 @@ export const Icon = styled.div`
     color: #fff;
     display: initial;
     font-size: 26px;
+    background-color: green;
   }
+`;
+
+export const TextMobile = styled.p`
+  font-weight: bold;
+  font-size: 12px;
+  opacity: 80%;
+`;
+
+export const ViewNav = styled.nav`
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+`;
+
+export const ViewBackground = styled.div`
+  position: absolute;
+  top: 20px;
+  left: 0;
+
+  color: #fff;
+`;
+
+export const ButtonMenu = styled.button`
+  outline: none;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ViewOption = styled.ul`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+`;
+
+export const ContainerOption = styled.li`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: #000;
+  border-bottom: 0.5px;
+  border-color: #cddce8;
+  border-style: solid;
+  height: 32px;
 `;

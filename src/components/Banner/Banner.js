@@ -44,6 +44,8 @@ export default function Banner({
   setIndex,
   direction,
   setDirection,
+  isOpen,
+  toggleOpen,
 }) {
   const nextTool = useCallback(async () => {
     setDirection(1);
@@ -72,9 +74,13 @@ export default function Banner({
 
   return (
     <>
-      <TopBar backColor={list[index]?.color} />
+      <TopBar
+        backColor={list[index]?.color}
+        isOpen={isOpen}
+        toggleOpen={toggleOpen}
+      />
       <AnimatePresence custom={direction}>
-        <Container colorBanner={list[index]?.color}>
+        <Container colorBanner={list[index]?.color} openMenu={isOpen}>
           <View
             as={motion.div}
             whileHover={{ scale: 1.1 }}

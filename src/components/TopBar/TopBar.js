@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 import {
   Button,
   ButtonPluga,
@@ -6,14 +8,21 @@ import {
   Image,
   Title,
   View,
+  ViewNav,
 } from "./styles";
 
 import logo from "../../assets/images/pluga-transparent.png";
 import InputTopBar from "../InputTopBar/InputTopBar";
 
-import { FiMenu } from "react-icons/fi";
+import { motion } from "framer-motion";
+import { useDimensions } from "./use-dimension";
+import { Navigation } from "./Navigation";
+import { MenuToggle } from "./MenuToggle";
 
-export default function TopBar({ backColor }) {
+export default function TopBar({ backColor, isOpen, toggleOpen }) {
+  const containerRef = useRef(null);
+  const { height } = useDimensions(containerRef);
+
   return (
     <>
       <Container backColor={backColor}>
@@ -27,7 +36,16 @@ export default function TopBar({ backColor }) {
           <Button>ENTRAR</Button>
           <ButtonPluga>CADASTRAR</ButtonPluga>
           <Icon>
-            <FiMenu />
+            <ViewNav
+              as={motion.nav}
+              initial={false}
+              animate={isOpen ? "open" : "closed"}
+              custom={height}
+              ref={containerRef}
+            >
+              <Navigation toggleOpen={toggleOpen} />
+              <MenuToggle toggle={() => toggleOpen()} />
+            </ViewNav>
           </Icon>
         </View>
       </Container>

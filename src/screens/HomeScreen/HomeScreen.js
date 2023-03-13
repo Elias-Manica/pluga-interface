@@ -1,4 +1,4 @@
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, useCycle } from "framer-motion";
 import { useEffect, useState } from "react";
 import Banner from "../../components/Banner/Banner";
 import IconsPage from "../../components/IconsPage/IconsPage";
@@ -13,6 +13,7 @@ export default function HomeScreen() {
   const [listBanner, setListBanner] = useState("");
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [isOpen, toggleOpen] = useCycle(false, true);
 
   async function getList(page) {
     try {
@@ -48,6 +49,8 @@ export default function HomeScreen() {
               setIndex={setIndex}
               direction={direction}
               setDirection={setDirection}
+              isOpen={isOpen}
+              toggleOpen={toggleOpen}
             />
           )}
         </AnimatePresence>
@@ -56,6 +59,8 @@ export default function HomeScreen() {
           setData={setData}
           page={page}
           setPage={setPage}
+          isOpen={isOpen}
+          toggleOpen={toggleOpen}
         />
         <IconsPage data={data} page={page} setPage={setPage} />
       </Container>

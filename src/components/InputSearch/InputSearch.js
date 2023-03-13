@@ -4,7 +4,14 @@ import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
 import { findTool, getData } from "../../services/api";
 
-export default function InputSearch({ data, setData, setPage, page }) {
+export default function InputSearch({
+  data,
+  setData,
+  setPage,
+  page,
+  isOpen,
+  toggleOpen,
+}) {
   const [inputRef, setInputRef] = useState(false);
 
   async function findToolByName(text) {
@@ -30,7 +37,7 @@ export default function InputSearch({ data, setData, setPage, page }) {
             findToolByName(e.target.value);
           }}
         />
-        <Icon inputRef={inputRef}>
+        <Icon inputRef={inputRef} isOpen={isOpen}>
           <FaSearch />
         </Icon>
       </View>

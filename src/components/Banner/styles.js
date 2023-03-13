@@ -8,6 +8,7 @@ export const Container = styled.div`
   align-items: center;
   transition: all 0.5s linear;
   overflow: hidden;
+  margin-top: ${(props) => (props.openMenu ? 190 : 0)}px;
 `;
 
 export const Logo = styled.img`

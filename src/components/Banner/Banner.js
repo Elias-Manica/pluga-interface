@@ -4,6 +4,7 @@ import { Container, IconLeft, IconRight, Logo, Name, View } from "./styles";
 
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 import { useCallback, useEffect } from "react";
+import TopBar from "../TopBar/TopBar";
 
 const variants = {
   initial: (direction) => {
@@ -43,6 +44,8 @@ export default function Banner({
   setIndex,
   direction,
   setDirection,
+  isOpen,
+  toggleOpen,
 }) {
   const nextTool = useCallback(async () => {
     setDirection(1);
@@ -65,14 +68,19 @@ export default function Banner({
   useEffect(() => {
     const interval = setInterval(() => {
       nextTool();
-    }, 3200);
+    }, 3000);
     return () => clearInterval(interval);
   }, [nextTool]);
 
   return (
     <>
+      <TopBar
+        backColor={list[index]?.color}
+        isOpen={isOpen}
+        toggleOpen={toggleOpen}
+      />
       <AnimatePresence custom={direction}>
-        <Container colorBanner={list[index]?.color}>
+        <Container colorBanner={list[index]?.color} openMenu={isOpen}>
           <View
             as={motion.div}
             whileHover={{ scale: 1.1 }}

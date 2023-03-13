@@ -62,8 +62,11 @@ export default function CardModal({
       opacity: 1,
       x: "0vw",
       transition: {
-        duration: 0.3,
+        ease: "linear",
+        duration: 3,
+        repeat: Infinity,
       },
+      y: [-10, -20, -10],
     },
     closed: {
       opacity: 0,
@@ -198,7 +201,6 @@ export default function CardModal({
               as={motion.img}
               initial={{
                 opacity: 1,
-                x: "-3vw",
                 transition: {
                   delay: 0.3,
                 },

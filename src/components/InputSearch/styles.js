@@ -26,7 +26,7 @@ export const Container = styled.input`
 `;
 
 export const View = styled.div`
-  margin-top: 70px;
+  margin-top: 50px;
   width: 85%;
   margin-left: auto;
   margin-right: auto;
@@ -35,12 +35,9 @@ export const View = styled.div`
 export const Icon = styled.div`
   transition: all 0.2s ease;
   position: absolute;
-  top: 92px;
+  top: 274px;
   font-size: 1.1em;
 
   color: ${(props) => (props.inputRef ? "#0ea7ff" : "#bacbd8")};
   margin-left: 25px;
-  :hover {
-    color: #bacbd8;
-  }
 `;

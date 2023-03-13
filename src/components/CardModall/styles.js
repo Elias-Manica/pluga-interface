@@ -133,7 +133,7 @@ export const ContatinerImage = styled.div`
 `;
 
 export const TextLastTool = styled.h1`
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   text-align: center;
   margin-top: 10px;

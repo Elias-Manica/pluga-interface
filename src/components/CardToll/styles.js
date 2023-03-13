@@ -21,6 +21,9 @@ export const Container = styled.div`
     -webkit-box-shadow: 6px 5px 26px 1px rgba(0, 0, 0, 0.1);
     box-shadow: 6px 5px 26px 1px rgba(0, 0, 0, 0.1);
   }
+  @media (max-width: 460px) {
+    margin-right: 0px;
+  }
 `;
 
 export const ViewText = styled.div`

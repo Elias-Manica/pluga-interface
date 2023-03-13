@@ -35,7 +35,7 @@ export const View = styled.div`
 export const Icon = styled.div`
   transition: all 0.2s ease;
   position: absolute;
-  top: 274px;
+  top: 344px;
   font-size: 1.1em;
 
   color: ${(props) => (props.inputRef ? "#0ea7ff" : "#bacbd8")};

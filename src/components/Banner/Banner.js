@@ -4,6 +4,7 @@ import { Container, IconLeft, IconRight, Logo, Name, View } from "./styles";
 
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 import { useCallback, useEffect } from "react";
+import TopBar from "../TopBar/TopBar";
 
 const variants = {
   initial: (direction) => {
@@ -71,6 +72,7 @@ export default function Banner({
 
   return (
     <>
+      <TopBar backColor={list[index]?.color} />
       <AnimatePresence custom={direction}>
         <Container colorBanner={list[index]?.color}>
           <View

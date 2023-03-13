@@ -106,7 +106,7 @@ export const ViewLast = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 20px;
 `;
 

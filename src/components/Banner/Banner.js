@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Container, IconLeft, IconRight, Logo, Name, View } from "./styles";
 
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
+import { useCallback, useEffect } from "react";
 
 const variants = {
   initial: (direction) => {
@@ -43,14 +44,14 @@ export default function Banner({
   direction,
   setDirection,
 }) {
-  function nextTool() {
+  const nextTool = useCallback(async () => {
     setDirection(1);
     if (index === list.length - 1) {
       setIndex(0);
       return;
     }
     setIndex(index + 1);
-  }
+  }, [index, list.length, setDirection, setIndex]);
 
   function prevTool() {
     setDirection(-1);
@@ -60,6 +61,13 @@ export default function Banner({
     }
     setIndex(index - 1);
   }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextTool();
+    }, 3200);
+    return () => clearInterval(interval);
+  }, [nextTool]);
 
   return (
     <>

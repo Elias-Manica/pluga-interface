@@ -65,7 +65,7 @@ export default function Banner({
   useEffect(() => {
     const interval = setInterval(() => {
       nextTool();
-    }, 3200);
+    }, 3000);
     return () => clearInterval(interval);
   }, [nextTool]);
 

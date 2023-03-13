@@ -1422,7 +1422,6 @@ export function randomTool(index) {
       link: "https://pluga.co/ferramentas/boleto_simples/",
     },
   ];
-  console.log(index, " index");
 
   return data.slice(index, Number(index + 10));
 }

@@ -45,7 +45,7 @@ export const ViewInfos = styled.div`
   border-radius: ${(props) => (props.firstWatch ? "25px" : "25px 25px 0 0")};
   @media (max-width: 900px) {
     flex-direction: column;
-    height: 200px;
+    height: ${(props) => (props.firstWatch ? 400 : 200)}px;
   }
 `;
 

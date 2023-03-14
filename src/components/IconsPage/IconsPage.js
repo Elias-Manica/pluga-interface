@@ -9,15 +9,13 @@ import CardTool from "../CardToll/CardTool";
 
 import { Container, TextEmpty, View } from "./styles";
 
-export default function IconsPage({ data, page, setPage }) {
+export default function IconsPage({ data, page, setPage, hasMore, setHasMore }) {
   const [list, setList] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [nameModal, setNameModal] = useState("");
   const [imgModal, setImgModal] = useState("");
   const [linkModal, setLinkModal] = useState("");
   const [color, setColor] = useState("");
-
-  const [hasMore, setHasMore] = useState(true);
 
   async function getTools() {
     try {
@@ -29,7 +27,7 @@ export default function IconsPage({ data, page, setPage }) {
 
   const fetchData = async () => {
     const response = await getTools();
-    console.log("fechtdata");
+    
     setList([...list, ...response]);
 
     if (response.length === 0 || response.length < 10) {

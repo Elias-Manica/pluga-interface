@@ -14,10 +14,11 @@ export default function HomeScreen() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isOpen, toggleOpen] = useCycle(false, true);
+  const [hasMore, setHasMore] = useState(true);
 
   async function getList(page) {
     try {
-      const response = await getData(page);
+      const response = getData(page);
       setData(response);
     } catch (error) {
       console.log(error);
@@ -55,14 +56,20 @@ export default function HomeScreen() {
           )}
         </AnimatePresence>
         <InputSearch
-          data={data}
           setData={setData}
           page={page}
           setPage={setPage}
           isOpen={isOpen}
-          toggleOpen={toggleOpen}
+          hasMore={hasMore}
+          setHasMore={setHasMore}
         />
-        <IconsPage data={data} page={page} setPage={setPage} />
+        <IconsPage
+          data={data}
+          page={page}
+          setPage={setPage}
+          hasMore={hasMore}
+          setHasMore={setHasMore}
+        />
       </Container>
     </>
   );

@@ -1,10 +1,33 @@
-import { Container, ContainerTool, Icon, View, ViewTool } from "./styles";
+import {
+  BackIcon,
+  Container,
+  ContainerTool,
+  Icon,
+  ImageTool,
+  TextIcon,
+  View,
+  ViewTool,
+} from "./styles";
 
 import { FaSearch } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { toolInput } from "../../services/api";
 
-export default function InputTopBar({ list }) {
+export default function InputTopBar() {
   const [isSelect, setIsSelect] = useState(false);
+  const [data, setData] = useState([]);
+
+  async function getTools() {
+    const response = toolInput();
+
+    setData(response);
+    console.log(response, " response");
+    return response;
+  }
+
+  useEffect(() => {
+    getTools();
+  }, []);
 
   return (
     <>
@@ -19,9 +42,14 @@ export default function InputTopBar({ list }) {
         </Icon>
         {isSelect && (
           <ContainerTool>
-            <ViewTool>TESTE 1</ViewTool>
-            <ViewTool>TESTE 1</ViewTool>
-            <ViewTool>TESTE 1</ViewTool>
+            {data.map((item) => (
+              <ViewTool>
+                <BackIcon backColor={item.color}>
+                  <ImageTool src={item.icon} />
+                </BackIcon>
+                <TextIcon>{item.name}</TextIcon>
+              </ViewTool>
+            ))}
           </ContainerTool>
         )}
       </View>

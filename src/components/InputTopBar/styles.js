@@ -56,9 +56,31 @@ export const ContainerTool = styled.div`
 export const ViewTool = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid #cddce8;
   font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  :hover {
+    background-color: #f5faff;
+  }
+`;
+
+export const BackIcon = styled.div`
+  height: 30px;
+  width: 30px;
+  background-color: ${(props) => props.backColor};
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const TextIcon = styled.p`
+  margin-left: 5px;
+`;
+
+export const ImageTool = styled.img`
+  height: 20px;
 `;

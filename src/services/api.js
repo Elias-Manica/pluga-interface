@@ -32,3 +32,7 @@ export function findTool(text) {
 export function randomTool(index) {
   return data.slice(index, Number(index + 10));
 }
+
+export function toolInput() {
+  return data.slice(15, 19);
+}

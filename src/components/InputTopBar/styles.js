@@ -43,3 +43,22 @@ export const Icon = styled.div`
   color: #fff;
   opacity: ${(props) => (props.isSelect ? "100%" : "80%")};
 `;
+
+export const ContainerTool = styled.div`
+  width: 100%;
+  position: absolute;
+  top: 43px;
+  left: 0;
+  background-color: #fff;
+  border-radius: 5px;
+`;
+
+export const ViewTool = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #cddce8;
+  font-size: 13px;
+`;

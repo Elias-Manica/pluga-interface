@@ -1,9 +1,9 @@
-import { Container, Icon, View } from "./styles";
+import { Container, ContainerTool, Icon, View, ViewTool } from "./styles";
 
 import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
 
-export default function InputTopBar() {
+export default function InputTopBar({ list }) {
   const [isSelect, setIsSelect] = useState(false);
 
   return (
@@ -17,6 +17,13 @@ export default function InputTopBar() {
         <Icon isSelect={isSelect}>
           <FaSearch />
         </Icon>
+        {isSelect && (
+          <ContainerTool>
+            <ViewTool>TESTE 1</ViewTool>
+            <ViewTool>TESTE 1</ViewTool>
+            <ViewTool>TESTE 1</ViewTool>
+          </ContainerTool>
+        )}
       </View>
     </>
   );

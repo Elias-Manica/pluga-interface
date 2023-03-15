@@ -22,7 +22,9 @@ export const Container = styled.div`
     box-shadow: 6px 5px 26px 1px rgba(0, 0, 0, 0.1);
   }
   @media (max-width: 460px) {
-    margin-right: 0px;
+    margin-right: 5px;
+    width: 120px;
+    height: 120px;
   }
 `;
 
@@ -42,6 +44,9 @@ export const Text = styled.p`
 
 export const Image = styled.img`
   width: 75px;
+  @media (max-width: 460px) {
+    width: 45px;
+  }
 `;
 
 export const ViewImage = styled.div`
@@ -55,4 +60,7 @@ export const ViewImage = styled.div`
   top: 0;
   left: 0;
   border-radius: 5px 5px 0 0;
+  @media (max-width: 460px) {
+    height: 65px;
+  }
 `;

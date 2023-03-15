@@ -38,6 +38,7 @@ export const Title = styled.h1`
 
 export const Image = styled.img`
   width: 125px;
+  cursor: pointer;
 `;
 
 export const Button = styled.div`

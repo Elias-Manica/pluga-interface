@@ -1,8 +1,10 @@
 import { AnimatePresence, useCycle } from "framer-motion";
 import { useEffect, useState } from "react";
+
 import Banner from "../../components/Banner/Banner";
 import IconsPage from "../../components/IconsPage/IconsPage";
 import InputSearch from "../../components/InputSearch/InputSearch";
+
 import { getData, randomTool } from "../../services/api";
 
 import { Container } from "./styles";

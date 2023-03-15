@@ -10,7 +10,9 @@ import {
 } from "./styles";
 
 import { FaSearch } from "react-icons/fa";
+
 import { useEffect, useState } from "react";
+
 import { findTool, toolInput } from "../../services/api";
 
 export default function InputTopBar() {

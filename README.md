@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Case Técnico Frontend Pluga
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Olá!
 
-## Available Scripts
+Este repositório contém o código do case técnico frontend que desenvolvi para a Pluga. O objetivo deste projeto era criar uma interface de usuário para uma aplicação web que permita ver as ferramentas que a plataforma tem parceria e um input para pesquisar por nomes específicos.
 
-In the project directory, you can run:
+## Tecnologias Utilizadas
 
-### `npm start`
+Para desenvolver este projeto, utilizei as seguintes tecnologias:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- JavaScript
+- React
+- Styled Components
+- Framer Motion
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Como executar o projeto
 
-### `npm test`
+Para executar o projeto, é necessário seguir os seguintes passos:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clonar o repositório para sua máquina local utilizando o comando git clone:
 
-### `npm run build`
+```bash
+https://github.com/Elias-Manica/pluga-interface.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Acessar a pasta raiz do projeto e executar o comando npm install para instalar todas as dependências:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm i
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Executar o comando npm start para iniciar o servidor de desenvolvimento.
 
-### `npm run eject`
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. Acessar http://localhost:3000 no seu navegador.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Funcionalidades
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+A aplicação possui as seguintes funcionalidades:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Listagem ferramentas parceiras da Pluga.
+- Filtragem das ferramentas por meio de um campo de busca.
+- Scroll Infinito paginando as ferramentas de 12 em 12.
+- Guardar e mostrar quais são as últimas 3 ferramentas vizualizadas pelo usuário.
+- Top Bar semelhante ao site da Pluga.
+- Banner que trás 10 ferramentas aleatórias que mudam de 3 em 3 segundos.
 
-## Learn More
+## Estrutura do projeto
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- src/: pasta que contém todo o código fonte do projeto.
+- src/assets/: pasta que contém o style global e as imagens utilizadas na aplicação.
+- src/components/: pasta que contém os componentes React utilizados na aplicação.
+- src/screens/: pasta que contém as páginas React utilizadas na aplicação.
+- src/services/: pasta que contém as funções que realizam as requisições para os dados fixos.
+- src/contexts/: pasta que contém os contextos da aplicação.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Considerações finais
 
-### Code Splitting
+Espero que este projeto atenda às suas expectativas. Caso tenha alguma dúvida ou sugestão de melhoria, fique à vontade para entrar em contato comigo.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Obrigado pela oportunidade!

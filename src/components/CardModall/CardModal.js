@@ -21,6 +21,15 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 import { IoIosClose } from "react-icons/io";
+import {
+  firstToolVariant,
+  imageVariant,
+  infoVariant,
+  secondToolVariant,
+  tirthToolVariant,
+  variants,
+  variantsModal,
+} from "./animation";
 
 export default function CardModal({
   setShowModal,
@@ -32,112 +41,6 @@ export default function CardModal({
   const [firstWatch, setFirstWatch] = useState({});
   const [secondWatch, setSecondWatch] = useState({});
   const [tirthWatch, setTirthWatch] = useState({});
-
-  const variants = {
-    open: {
-      opacity: 1,
-    },
-    closed: {
-      opacity: 0,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
-
-  const variantsModal = {
-    open: {
-      scale: 1,
-    },
-    closed: {
-      scale: 0,
-      transition: {
-        delay: 0.3,
-      },
-    },
-  };
-
-  const imageVariant = {
-    open: {
-      opacity: 1,
-      x: "0vw",
-      transition: {
-        ease: "linear",
-        duration: 3,
-        repeat: Infinity,
-      },
-      y: [-10, -20, -10],
-    },
-    closed: {
-      opacity: 0,
-      x: "-3vw",
-    },
-  };
-
-  const infoVariant = {
-    open: {
-      opacity: 1,
-      x: "0vw",
-      transition: {
-        duration: 0.3,
-      },
-    },
-    closed: {
-      opacity: 0,
-      x: "3vw",
-    },
-  };
-
-  const firstToolVariant = {
-    open: {
-      opacity: 1,
-      y: "0vh",
-      transition: {
-        duration: 0.3,
-      },
-    },
-    closed: {
-      opacity: 0,
-      y: "3vh",
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
-
-  const secondToolVariant = {
-    open: {
-      opacity: 1,
-      y: "0vh",
-      transition: {
-        duration: 0.5,
-      },
-    },
-    closed: {
-      opacity: 0,
-      y: "3vh",
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
-
-  const tirthToolVariant = {
-    open: {
-      opacity: 1,
-      y: "0vh",
-      transition: {
-        duration: 0.7,
-      },
-    },
-    closed: {
-      opacity: 0,
-      y: "3vh",
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
 
   useEffect(() => {
     const pluga1 = localStorage.getItem("pluga1");

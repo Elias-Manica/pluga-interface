@@ -27,7 +27,10 @@ export default function TopBar({ backColor, isOpen, toggleOpen }) {
     <>
       <Container backColor={backColor}>
         <View>
-          <Image src={logo} />
+          <Image
+            src={logo}
+            onClick={() => window.open("https://pluga.co/", "_blank").focus()}
+          />
           <InputTopBar />
           <Title
             onClick={() =>

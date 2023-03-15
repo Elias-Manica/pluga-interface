@@ -1,7 +1,9 @@
 import { Container, Icon, View } from "./styles";
 
 import { FaSearch } from "react-icons/fa";
+
 import { useState } from "react";
+
 import { findTool, getData } from "../../services/api";
 
 export default function InputSearch({

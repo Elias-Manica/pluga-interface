@@ -19,7 +19,30 @@ const variants = {
   },
 };
 
-export const MenuItem = ({ i, toggleOpen }) => {
+export const MenuItem = ({ i }) => {
+  function clicked(i) {
+    if (i === "FERRAMENTAS") {
+      window.open("https://pluga.co/ferramentas/", "_blank").focus();
+    }
+    if (i === "PREÇOS") {
+      window.open("https://pluga.co/precos/", "_blank").focus();
+    }
+    if (i === "SOBRE A PLUGA") {
+      window.open("https://pluga.co/trabalhe-conosco/", "_blank").focus();
+    }
+    if (i === "CONTEÚDO") {
+      window.open("https://pluga.co/historias-de-sucesso/", "_blank").focus();
+    }
+    if (i === "ENTRAR") {
+      window.open("https://manage.pluga.co/login", "_blank").focus();
+    }
+    if (i === "CADASTRAR") {
+      window
+        .open("https://manage.pluga.co/#/signup?lang=pt_BR", "_blank")
+        .focus();
+    }
+  }
+
   return (
     <ContainerOption
       as={motion.li}
@@ -29,7 +52,7 @@ export const MenuItem = ({ i, toggleOpen }) => {
     >
       <TextMobile
         onClick={() => {
-          toggleOpen();
+          clicked(i);
         }}
       >
         {i}

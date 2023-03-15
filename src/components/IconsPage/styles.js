@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 30px;
   display: flex;
   flex-wrap: wrap;
